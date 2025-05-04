@@ -31,12 +31,27 @@ function updatePlayIcon() {
 
 // Update Progress & Timestamp
 function updateProgress() {
-	return true;
+	// console.log(video.currentTime);
+	progress.value = (video.currentTime / video.duration) * 100;
+
+	// Getting the minutes:
+	let minutes = Math.floor(video.currentTime / 60);
+	if (minutes < 10) {
+		minutes = "0" + String(minutes);
+	}
+
+	// Getting the seconds
+	let seconds = Math.floor(video.currentTime % 60);
+	if (seconds < 10) {
+		seconds = "0" + String(seconds);
+	}
+
+	timestamp.innerHTML = `${minutes}:${seconds}`;
 }
 
 // Set Video Progress / Time
 function setVideoProgress() {
-	return true;
+	video.currentTime = (+progress.value * video.duration) / 100;
 }
 
 // Event Listeners:
