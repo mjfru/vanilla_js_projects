@@ -5,17 +5,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
 		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="img/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="img/favicon-16x16.png"
+		/>
+		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 		/>
-
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Currency Exchange</title>
 		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<img src="img/newExchangeLogo.png" alt="money logo" class="money-img" />
+		<img
+			src="img/exchangeLogoTransparent.png"
+			alt="money logo"
+			class="money-img"
+		/>
 		<h1>Currency Exchange Rates</h1>
-		<p>Indicate the type and amount of currency to convert</p>
+		<p>Select your base and target currency and the amount to convert.</p>
 		<div class="container">
 			<div class="currency">
 				<select id="currency-one">
@@ -25,6 +46,7 @@
 					<option value="BGN">Bulgarian Lev</option>
 					<option value="BRL">Brazilian Real</option>
 					<option value="BSD">Bahamian Dollar</option>
+					<option value="BWP">Botswana Pula</option>
 					<option value="CAD">Canadian Dollar</option>
 					<option value="CHF">Swiss Franc</option>
 					<option value="CLP">Chilean Peso</option>
@@ -48,13 +70,14 @@
 					<option value="SEK">Swedish Krona</option>
 					<option value="SGD">Singaporean Dollar</option>
 					<option value="THB">Thai Baht</option>
-					<option value="TRY">Turkiye New Lira</option>
+					<option value="TRY">Turkish Lira</option>
 					<option value="TWD">Taiwan Dollar</option>
 					<option value="UAH">Ukrainian Hryvnia</option>
 					<option value="USD" selected>US Dollar</option>
 					<option value="UYU">Uruguayan Peso</option>
 					<option value="VND">Vietnamese Dong</option>
 					<option value="ZAR">South African Rand</option>
+					<option value="ZMW">Zambian Kwacha</option>
 				</select>
 				<input type="number" id="amount-one" placeholder="0" value="1" />
 			</div>
@@ -74,6 +97,7 @@
 					<option value="BGN">Bulgarian Lev</option>
 					<option value="BRL">Brazilian Real</option>
 					<option value="BSD">Bahamian Dollar</option>
+					<option value="BWP">Botswana Pula</option>
 					<option value="CAD">Canadian Dollar</option>
 					<option value="CHF">Swiss Franc</option>
 					<option value="CLP">Chilean Peso</option>
@@ -97,16 +121,29 @@
 					<option value="SEK">Swedish Krona</option>
 					<option value="SGD">Singaporean Dollar</option>
 					<option value="THB">Thai Baht</option>
-					<option value="TRY">Turkiye New Lira</option>
+					<option value="TRY">Turkish Lira</option>
 					<option value="TWD">Taiwan Dollar</option>
 					<option value="UAH">Ukrainian Hryvnia</option>
 					<option value="USD">US Dollar</option>
 					<option value="UYU">Uruguayan Peso</option>
 					<option value="VND">Vietnamese Dong</option>
 					<option value="ZAR" selected>South African Rand</option>
+					<option value="ZMW">Zambian Kwacha</option>
 				</select>
 				<input type="number" id="amount-two" placeholder="0" />
 			</div>
 		</div>
 	</body>
+	<footer>
+		<h2>
+			Hand-coded and Maintained by MJF -
+			<span class="currentYear"></span>
+		</h2>
+		<div class="footer-links">
+			<a href="https://github.com/mjfru" target="_blank">Github</a>
+			<a href="https://mjfru-webdev-port.vercel.app/" target="_blank"
+				>Developer Portfolio</a
+			>
+		</div>
+	</footer>
 </html>

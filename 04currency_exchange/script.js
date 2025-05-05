@@ -15,6 +15,7 @@ const amountElementOne = document.getElementById("amount-one");
 const amountElementTwo = document.getElementById("amount-two");
 const rate = document.getElementById("rate");
 const swapBtn = document.getElementById("swap");
+const currentYear = document.querySelector(".currentYear");
 
 //* Fetch the Exchange Rates & Update DOM
 const calculate = () => {
@@ -34,6 +35,12 @@ const calculate = () => {
 		});
 };
 
+const getYear = () => {
+	const year = new Date().getFullYear();
+	console.log(year);
+	currentYear.innerText = year;
+};
+
 //* Event Listeners:
 currencyElementOne.addEventListener("change", calculate);
 currencyElementTwo.addEventListener("change", calculate);
@@ -48,3 +55,4 @@ swapBtn.addEventListener("click", () => {
 });
 
 calculate();
+getYear();
