@@ -32,12 +32,14 @@ p {
 	cursor: pointer;
 	border-radius: 5px;
 	border-color: transparent;
-	font-size: 12px;
-	padding: 5px 12px;
+	font-size: 18px;
+	padding: 6px 14px;
 }
 
 .money-img {
-	width: 150px;
+	width: 200px;
+  border: 10px solid var(--primary-color);
+  border-radius: 50%;
 }
 
 .currency {
@@ -48,6 +50,7 @@ p {
 }
 
 .currency select {
+  width: 40%;
 	padding: 10px 20px 10px 10px;
 	-moz-appearance: none;
 	-webkit-appearence: none;
@@ -66,6 +69,9 @@ p {
 	background: transparent;
 	font-size: 30px;
 	text-align: right;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 50%;
 }
 
 .swap-rate-container {
@@ -91,3 +97,9 @@ button:focus {
 		width: 200px;
 	}
 }
+
+/* TODO */
+/* Fix middle alignment */
+/* New main font, make it a custom variable */
+/* Decide on number input styling, if any */
+/* Decide on giving the application a border and a different BG color to stand out */
