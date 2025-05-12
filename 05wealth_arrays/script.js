@@ -54,8 +54,22 @@ function sortByWealth() {
 
 //* Filter Users > 999,999
 function showMillionaires() {
-  data = data.filter(user => user.wealth > 999999);
-  updateDOM();
+	data = data.filter((user) => user.wealth > 999999);
+	updateDOM();
+}
+
+//* Calculate Total Users' Wealth
+function calculateWealth() {
+	const wealth = data.reduce(
+		(accumulator, user) => (accumulator += user.wealth),
+		0
+	);
+	// console.log(formatMoney(wealth));
+	const wealthElement = document.createElement("div");
+	wealthElement.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(
+		wealth
+	)}</strong></h3>`;
+	main.appendChild(wealthElement);
 }
 
 //* Updating the DOM:
@@ -82,4 +96,5 @@ function formatMoney(number) {
 addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
 sortBtn.addEventListener("click", sortByWealth);
-showBtn.addEventListener("click", showMillionaires)
+showBtn.addEventListener("click", showMillionaires);
+calculateBtn.addEventListener("click", calculateWealth);
