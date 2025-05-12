@@ -2,7 +2,8 @@
 const main = document.getElementById("main");
 const addUserBtn = document.getElementById("add-user");
 const doubleBtn = document.getElementById("double");
-const showBtn = document.getElementById("show-millionaires");
+const sortBtn = document.getElementById("sort");
+const showBtn = document.getElementById("showBtn");
 const calculateBtn = document.getElementById("calculate-wealth");
 
 // The people we generate will be here:
@@ -22,7 +23,7 @@ async function getRandomUser() {
 
 	const newUser = {
 		name: `${user.name.first} ${user.name.last}`,
-		wealth: Math.floor(Math.random() * 1000000),
+		wealth: Math.floor(Math.random() * 10000000),
 	};
 
 	// console.log(newUser);
@@ -41,6 +42,20 @@ function doubleMoney() {
 function addData(object) {
 	data.push(object);
 	updateDOM();
+}
+
+//* Sorting users by wealth:
+function sortByWealth() {
+	data.sort((a, b) => {
+		return b.wealth - a.wealth;
+	});
+	updateDOM();
+}
+
+//* Filter Users > 999,999
+function showMillionaires() {
+  data = data.filter(user => user.wealth > 999999);
+  updateDOM();
 }
 
 //* Updating the DOM:
@@ -66,3 +81,5 @@ function formatMoney(number) {
 //* Event Listeners
 addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
+sortBtn.addEventListener("click", sortByWealth);
+showBtn.addEventListener("click", showMillionaires)
