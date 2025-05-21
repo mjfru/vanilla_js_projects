@@ -1,0 +1,15 @@
+body {
+	background-color: #34495e;
+	color: #fff;
+}
+
+.figure-container {
+	fill: transparent;
+	stroke: #fff;
+	stroke-width: 5px;
+	stroke-linecap: round;
+}
+
+.figure-part {
+	display: none;
+}
