@@ -38,4 +38,43 @@ function displayWord() {
 	}
 }
 
+//* Updating the wrong letters element:
+function updateWrongLettersElement() {
+	console.log("Updated wrong");
+}
+
+//* Showing a notification:
+function showNotification() {
+	notification.classList.add("show");
+	setTimeout(() => {
+		notification.classList.remove("show");
+	}, 1500);
+}
+
+//* Keydown Event Listeners
+window.addEventListener("keydown", (event) => {
+	//* Checking for letters only
+	// console.log(event.code);
+	if (event.code >= "KeyA" && event.code <= "KeyZ") {
+		// console.log('Works');
+		const letter = event.key;
+		if (selectedWord.includes(letter)) {
+			//* Making sure the letter isn't already in the array:
+			if (!correctLetters.includes(letter)) {
+				correctLetters.push(letter);
+				displayWord();
+			} else {
+				showNotification();
+			}
+		} else {
+			if (!wrongLetters.includes(letter)) {
+				wrongLetters.push(letter);
+				updateWrongLettersElement();
+			} else {
+				showNotification();
+			}
+		}
+	}
+});
+
 displayWord();
