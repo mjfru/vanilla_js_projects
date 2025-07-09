@@ -62,11 +62,11 @@ data.forEach(createBox);
 // Create speech boxes:
 function createBox(item) {
 	// console.log(item);
-	const { image, text } = item;
 	const box = document.createElement("div");
+	const { image, text } = item;
 	box.classList.add("box");
 	box.innerHTML = `
-    <img src="${image}" alt="${text}"
+    <img src="${image}" alt="${text}" />
     <p class="info">${text}</p>
   `;
 
