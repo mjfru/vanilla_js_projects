@@ -70,8 +70,71 @@ function createBox(item) {
     <p class="info">${text}</p>
   `;
 
-  //TODO Speak event listener
+	//TODO Speak event listener
+	box.addEventListener("click", () => {
+		setTextMessage(text);
+		speakText();
 
-  // Add to main div:
-  main.appendChild(box);
+		// Add active effect
+		box.classList.add("active");
+		setTimeout(() => box.classList.remove("active"), 800);
+	});
+
+	// Add to main div:
+	main.appendChild(box);
 }
+
+// Initialize speech synthesis
+const message = new SpeechSynthesisUtterance();
+
+// Store voice choices:
+let voices = [];
+
+function getVoices() {
+	voices = speechSynthesis.getVoices();
+	voices.forEach((voice) => {
+		const option = document.createElement("option");
+		option.value = voice.name;
+		option.innerText = `${voice.name}`;
+		voicesSelect.appendChild(option);
+	});
+}
+
+// Set text:
+function setTextMessage(text) {
+	message.text = text;
+}
+
+// Speak the text:
+function speakText() {
+	speechSynthesis.speak(message);
+}
+
+// Set Voice:
+function setVoice(e) {
+  message.voice = voices.find(voice => voice.name === e.target.value);
+}
+
+// Change voice:
+speechSynthesis.addEventListener("voiceschanged", getVoices);
+
+// Toggle the text box
+toggle.addEventListener("click", () =>
+	document.getElementById("text-box").classList.toggle("show")
+);
+
+// Close button & text box
+closeButton.addEventListener("click", () =>
+	document.getElementById("text-box").classList.remove("show")
+);
+
+// Change voice in the dropdown
+voicesSelect.addEventListener('change', setVoice);
+
+// Read text in the textarea:
+readButton.addEventListener('click', () => {
+  setTextMessage(textarea.value);
+  speakText();
+})
+
+getVoices();
