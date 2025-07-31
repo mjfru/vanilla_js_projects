@@ -91,11 +91,11 @@ button {
 	left: 140px;
 	width: 20px;
 	height: 190px;
-	animation: rotate 8s linear forwards infinite;
-	transform-origin: bottom center;
+	/* animation: rotate 8s linear forwards infinite;
+	transform-origin: bottom center; */
 }
 
-.pointer-container .active {
+.pointer-container.active {
 	animation: rotate 8s linear forwards infinite;
 	transform-origin: bottom center;
 }

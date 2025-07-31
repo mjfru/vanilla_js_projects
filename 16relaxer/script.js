@@ -1,5 +1,6 @@
 // DOM Elements
 const container = document.getElementById("container");
+const pointerAnimation = document.querySelector(".pointer-container");
 const text = document.getElementById("text");
 const btn = document.getElementById("btn");
 
@@ -28,21 +29,23 @@ function breathAnimation() {
 }
 
 // breathAnimation();
-
 // setInterval(breathAnimation, totalTime);
 
 // Add a start / stop button, change colors, add a background selector
 function startStop() {
 	if (!isRunning) {
 		breathAnimation();
+		pointerAnimation.classList.add("active");
 		interval = setInterval(breathAnimation, totalTime);
 		btn.textContent = "Stop";
 		isRunning = true;
 	} else {
 		clearInterval(interval);
 		clearTimeout(timer);
+		pointerAnimation.classList.remove("active");
+		container.classList.remove("shrink", "grow");
 		btn.textContent = "Start";
-    text.innerText = "";
+		text.innerText = "";
 		isRunning = false;
 	}
 }
