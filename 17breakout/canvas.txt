@@ -1,0 +1,12 @@
+1. Create canvas context
+2. Create and draw the ball - Color, shape, position
+3. Create and draw the paddle
+4. Create bricks using two arrays and forEach loops.
+5. Draw the scoreboard
+6. Add update() to animate (redraw) with requestAnimationFrame(callbackFn)
+7. Move the paddle
+8. Use keyboard event handlers to move the paddle
+9. Move ball
+10. Add boundaries
+11. Increase the score when bricks break
+12. Lose functionality - redraw the bricks and reset score
