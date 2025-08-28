@@ -4,8 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
-		<script src="script.js" defer></script>
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script src="script.js" defer></script>
 		<title>Product Filtering</title>
 	</head>
 	<body class="bg-gray-800 text-white">
@@ -91,77 +91,8 @@
 
 			<!-- Products' Wrapper -->
 			<div
-				class="products-wrapper w-full max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6 place-content-center p-4"
-			>
-				<div class="item space-y-2">
-					<div
-						class="bg-gray-100 flex-justify-center relative overflow-hidden group cursor-pointer border"
-					>
-						<img
-							src="./images/playstation_5.png"
-							alt="PS5"
-							class="w-full h-full object-cover"
-						/>
-						<span
-							class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
-							>Add To Cart</span
-						>
-					</div>
-					<p class="text-xl">Playstation 5</p>
-					<strong>$449</strong>
-				</div>
-				<div class="item space-y-2">
-					<div
-						class="bg-gray-100 flex-justify-center relative overflow-hidden group cursor-pointer border"
-					>
-						<img
-							src="./images/playstation_5.png"
-							alt="PS5"
-							class="w-full h-full object-cover"
-						/>
-						<span
-							class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
-							>Add To Cart</span
-						>
-					</div>
-					<p class="text-xl">Playstation 5</p>
-					<strong>$449</strong>
-				</div>
-				<div class="item space-y-2">
-					<div
-						class="bg-gray-100 flex-justify-center relative overflow-hidden group cursor-pointer border"
-					>
-						<img
-							src="./images/playstation_5.png"
-							alt="PS5"
-							class="w-full h-full object-cover"
-						/>
-						<span
-							class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
-							>Add To Cart</span
-						>
-					</div>
-					<p class="text-xl">Playstation 5</p>
-					<strong>$449</strong>
-				</div>
-				<div class="item space-y-2">
-					<div
-						class="bg-gray-100 flex-justify-center relative overflow-hidden group cursor-pointer border"
-					>
-						<img
-							src="./images/iphone_14.png"
-							alt="PS5"
-							class="w-full h-full object-cover"
-						/>
-						<span
-							class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
-							>Add To Cart</span
-						>
-					</div>
-					<p class="text-xl">iPhone 14</p>
-					<strong>$599</strong>
-				</div>
-			</div>
+				class="w-full max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6 place-content-center p-4" id="products-wrapper"
+			></div>
 		</main>
 	</body>
 </html>
