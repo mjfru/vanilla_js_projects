@@ -87,6 +87,28 @@ let cartItemCount = 0;
 // Initializing the products:
 const productElements = [];
 
+// Toggle add/remove from cart:
+const addToCart = (e) => {
+	const statusElement = e.target;
+	console.log(statusElement);
+	if (statusElement.classList.contains("added")) {
+		// Remove from cart:
+		statusElement.classList.remove("added");
+		statusElement.innerText = "Add to Cart";
+		statusElement.classList.add("bg-gray-800");
+		statusElement.classList.remove("bg-red-600");
+		cartItemCount--;
+	} else {
+		// Add to cart:
+		statusElement.classList.add("added");
+		statusElement.innerText = "Remove from Cart";
+		statusElement.classList.remove("bg-gray-800");
+		statusElement.classList.add("bg-red-600");
+		cartItemCount++;
+	}
+	// Update the cart item count:
+	cartCount.innerText = cartItemCount.toString();
+};
 
 // Creating a product element:
 const createProductElement = (product) => {
@@ -109,6 +131,7 @@ const createProductElement = (product) => {
 					<p class="text-xl">${product.name}</p>
 					<strong>$${product.price.toLocaleString()}</strong>`;
 
+	productElement.querySelector(".status").addEventListener("click", addToCart);
 	return productElement;
 };
 
@@ -119,4 +142,37 @@ products.forEach((product) => {
 	productsWrapper.appendChild(productElement);
 });
 
+// Filter Products Function (Search or checkbox):
+const filterProducts = () => {
+	// Get the search term:
+	const searchTerm = searchInput.value.trim().toLowerCase();
+	// Get checked categories:
+	const checkedCategories = Array.from(checkEls)
+		.filter((check) => check.checked)
+		.map((check) => check.id);
 
+	// console.log(checkedCategories);
+
+	// Loop over products and check for matches:
+	productElements.forEach((productEl, index) => {
+		const filteredProduct = products[index];
+		// Check to see if product matches the search / checked categories:
+		const matchesSearchTerm = filteredProduct.name
+			.toLowerCase()
+			.includes(searchTerm);
+		const isInCheckedCategory =
+			checkedCategories.length === 0 ||
+			checkedCategories.includes(filteredProduct.type);
+
+		// Show or hide product based on matches:
+		if (matchesSearchTerm && isInCheckedCategory) {
+			productEl.classList.remove("hidden");
+		} else {
+			productEl.classList.add("hidden");
+		}
+	});
+};
+
+// Add filter event listener:
+filtersContainer.addEventListener("change", filterProducts);
+searchInput.addEventListener("input", filterProducts);
